@@ -129,11 +129,76 @@
                 </TabItem>
 
                 <TabItem Header="과제 3. To-Do 리스트">
-                    <Grid Margin="20">
-                        <TextBlock VerticalAlignment="Center"
-                                   FontSize="18"
-                                   Foreground="#6B7280"
-                                   Text="To-Do 리스트 MVVM은 다음 단계에서 구현합니다." />
+                    <Grid DataContext="{Binding Todo}"
+                          Margin="20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <StackPanel>
+                            <TextBlock FontSize="28"
+                                       FontWeight="Bold"
+                                       Text="To-Do 리스트 MVVM" />
+                            <TextBlock Margin="0,8,0,0"
+                                       Foreground="#4B5563"
+                                       Text="ObservableCollection과 선택 항목 바인딩을 사용해 추가 및 삭제를 구현합니다." />
+                        </StackPanel>
+
+                        <Border Grid.Row="1"
+                                Margin="0,28,0,0"
+                                Padding="24"
+                                VerticalAlignment="Stretch"
+                                Background="#F9FAFB"
+                                BorderBrush="#E5E7EB"
+                                BorderThickness="1"
+                                CornerRadius="10">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <TextBox Grid.Row="0"
+                                         Grid.Column="0"
+                                         Height="38"
+                                         Margin="0,0,12,0"
+                                         Padding="10,6"
+                                         Text="{Binding NewTodoText, UpdateSourceTrigger=PropertyChanged}" />
+
+                                <Button Grid.Row="0"
+                                        Grid.Column="1"
+                                        Width="100"
+                                        Height="38"
+                                        Command="{Binding AddCommand}"
+                                        Content="추가" />
+
+                                <ListBox Grid.Row="1"
+                                         Grid.ColumnSpan="2"
+                                         Margin="0,16,0,16"
+                                         Padding="6"
+                                         Background="White"
+                                         BorderBrush="#D1D5DB"
+                                         BorderThickness="1"
+                                         ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                         ItemsSource="{Binding Todos}"
+                                         SelectedItem="{Binding SelectedTodo, Mode=TwoWay}"
+                                         FontSize="15" />
+
+                                <Button Grid.Row="2"
+                                        Grid.Column="1"
+                                        Width="100"
+                                        Height="38"
+                                        HorizontalAlignment="Right"
+                                        Command="{Binding DeleteCommand}"
+                                        Content="삭제" />
+                            </Grid>
+                        </Border>
                     </Grid>
                 </TabItem>
             </TabControl>
