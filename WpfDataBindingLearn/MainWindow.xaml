@@ -5,7 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfDataBindingLearn"
         mc:Ignorable="d"
-        Title="WPF Data Binding" Height="300" Width="500">
+        Title="WPF Data Binding" Height="620" Width="520">
+    <Window.Resources>
+        <local:PercentageConverter x:Key="PercentageConverter" /> 
+    </Window.Resources>
+
     <Grid Background="#F5F5F5">
         <Border Width="320"
                 Padding="24"
@@ -34,6 +38,31 @@
                        BorderBrush="#D4D4D4"
                        BorderThickness="1"
                        Content="{Binding Name}" />
+
+                <TextBlock Margin="0,20,0,6"
+                           FontWeight="Bold"
+                           Text="상품 목록" />
+                <ListBox Height="140"
+                         Margin="0,0,0,12"
+                         ItemsSource="{Binding Products}" />
+
+                <Button Height="36"
+                        Click="AddProductButton_Click"
+                        Content="새 상품 추가" />
+
+                <TextBlock Margin="0,20,0,6"
+                           FontWeight="Bold"
+                           Text="퍼센트 변환기" />
+                <Slider x:Name="PercentSlider"
+                        Minimum="0"
+                        Maximum="100"
+                        Value="25"
+                        TickFrequency="10"
+                        IsSnapToTickEnabled="False" />
+                <TextBlock Margin="0,8,0,0"
+                           FontSize="16"
+                           FontWeight="SemiBold"
+                           Text="{Binding ElementName=PercentSlider, Path=Value, Converter={StaticResource PercentageConverter}}" />
             </StackPanel>
         </Border>
     </Grid>

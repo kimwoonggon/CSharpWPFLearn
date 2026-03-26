@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
@@ -6,6 +7,8 @@ namespace WpfDataBindingLearn;
 public class User : INotifyPropertyChanged
 {
     private string _name = string.Empty;
+
+    public ObservableCollection<Product> Products { get; } = new();
 
     public string Name
     {
