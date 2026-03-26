@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="WPF Data Binding" Height="620" Width="520">
     <Window.Resources>
-        <local:PercentageConverter x:Key="PercentageConverter" /> 
+        <local:PercentageConverter x:Key="PercentageConverter" />
     </Window.Resources>
 
     <Grid Background="#F5F5F5">

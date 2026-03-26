@@ -1,0 +1,74 @@
+﻿<Window x:Class="WpfStyleAndTemplateLearn.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfStyleAndTemplateLearn"
+        mc:Ignorable="d"
+        Title="WPF Style And Template" Height="760" Width="720">
+    <Grid Background="#F3F4F6">
+        <Border Width="420"
+                Padding="24"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Background="White"
+                BorderBrush="#D1D5DB"
+                BorderThickness="1"
+                CornerRadius="8">
+            <StackPanel>
+                <TextBlock FontSize="24"
+                           FontWeight="Bold"
+                           Text="전역 스타일 예제" />
+                <TextBlock Text="아래 TextBlock과 TextBox는 App.xaml의 전역 스타일을 자동으로 적용받습니다." />
+                <TextBlock Text="이름" />
+                <TextBox Text="홍길동" />
+                <TextBlock Text="이메일" />
+                <TextBox Text="hong@example.com" />
+
+                <Separator Margin="0,8,0,16" />
+
+                <TextBlock FontSize="24"
+                           FontWeight="Bold"
+                           Text="ControlTemplate 예제" />
+                <TextBlock Text="아래 ToggleButton은 ControlTemplate을 사용하며, 토글 상태에 따라 Path 아이콘이 바뀝니다." />
+
+                <ToggleButton Style="{StaticResource ToggleIconButtonStyle}"
+                              Content="재생 / 일시정지" />
+
+                <Separator Margin="0,16,0,16" />
+
+                <TextBlock FontSize="24"
+                           FontWeight="Bold"
+                           Text="DataTemplate 예제" />
+                <TextBlock Text="ListBox.ItemTemplate을 사용해서 사용자 이름과 이메일을 각각 다른 TextBlock에 표시합니다." />
+
+                <ListBox ItemsSource="{Binding Users}"
+                         BorderBrush="#D1D5DB"
+                         BorderThickness="1"
+                         Background="#FAFAFA">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border Margin="0,0,0,8"
+                                    Padding="12"
+                                    Background="White"
+                                    BorderBrush="#E5E7EB"
+                                    BorderThickness="1"
+                                    CornerRadius="6">
+                                <StackPanel>
+                                    <TextBlock FontSize="17"
+                                               FontWeight="Bold"
+                                               Margin="0,0,0,4"
+                                               Text="{Binding Name}" />
+                                    <TextBlock FontSize="14"
+                                               Foreground="#4B5563"
+                                               Margin="0"
+                                               Text="{Binding Email}" />
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
