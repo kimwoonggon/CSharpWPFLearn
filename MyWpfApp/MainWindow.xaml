@@ -1,0 +1,116 @@
+﻿<Window x:Class="MyWpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyWpfApp"
+        mc:Ignorable="d"
+        Title="Login" Height="500" Width="900">
+    <DockPanel Background="#F3F4F6">
+        <Menu DockPanel.Dock="Top"
+              Background="#E5E7EB">
+            <MenuItem Header="파일">
+                <MenuItem Header="열기" />
+                <MenuItem Header="저장" />
+                <Separator />
+                <MenuItem Header="종료" />
+            </MenuItem>
+            <MenuItem Header="편집">
+                <MenuItem Header="복사" />
+                <MenuItem Header="붙여넣기" />
+            </MenuItem>
+            <MenuItem Header="도움말">
+                <MenuItem Header="정보" />
+            </MenuItem>
+        </Menu>
+
+        <StatusBar DockPanel.Dock="Bottom"
+                   Background="#E5E7EB">
+            <StatusBarItem Content="준비" />
+            <Separator />
+            <StatusBarItem Content="로그인 화면" />
+        </StatusBar>
+
+        <Border DockPanel.Dock="Left"
+                Width="180"
+                Padding="12"
+                Background="#D1D5DB"
+                BorderBrush="#9CA3AF"
+                BorderThickness="0,0,1,0">
+            <StackPanel>
+                <TextBlock Margin="0,0,0,16"
+                           FontSize="18"
+                           FontWeight="Bold"
+                           Text="사이드바" />
+                <Button Margin="0,0,0,8"
+                        Padding="10,6"
+                        Content="대시보드" />
+                <Button Margin="0,0,0,8"
+                        Padding="10,6"
+                        Content="사용자" />
+                <Button Margin="0,0,0,8"
+                        Padding="10,6"
+                        Content="설정" />
+            </StackPanel>
+        </Border>
+
+        <Grid Margin="24">
+            <Border Width="360"
+                    Padding="24"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="White"
+                    BorderBrush="LightGray"
+                    BorderThickness="1"
+                    CornerRadius="8">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Row="0"
+                               Grid.ColumnSpan="2"
+                               Margin="0,0,0,20"
+                               FontSize="24"
+                               FontWeight="Bold"
+                               HorizontalAlignment="Center"
+                               Text="로그인" />
+
+                    <Label Grid.Row="1"
+                           Grid.Column="0"
+                           VerticalAlignment="Center"
+                           Content="아이디" />
+                    <TextBox x:Name="UserNameTextBox"
+                             Grid.Row="1"
+                             Grid.Column="1"
+                             Margin="0,0,0,12"
+                             Padding="8" />
+
+                    <Label Grid.Row="2"
+                           Grid.Column="0"
+                           VerticalAlignment="Center"
+                           Content="비밀번호" />
+                    <TextBox x:Name="PasswordTextBox"
+                             Grid.Row="2"
+                             Grid.Column="1"
+                             Margin="0,0,0,20"
+                             Padding="8" />
+
+                    <Button Grid.Row="3"
+                            Grid.ColumnSpan="2"
+                            Height="36"
+                            Click="LoginButton_Click"
+                            Content="로그인" />
+                </Grid>
+            </Border>
+        </Grid>
+    </DockPanel>
+</Window>
