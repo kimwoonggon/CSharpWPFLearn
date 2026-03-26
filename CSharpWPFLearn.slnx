@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="MyWpfApp/MyWpfApp.csproj" />
+  <Project Path="WpfDataBindingLearn/WpfDataBindingLearn.csproj" />
 </Solution>
