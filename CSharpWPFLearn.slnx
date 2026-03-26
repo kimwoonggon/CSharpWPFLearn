@@ -1,6 +1,7 @@
 <Solution>
   <Project Path="MyWpfApp/MyWpfApp.csproj" />
   <Project Path="WpfDataBindingLearn/WpfDataBindingLearn.csproj" />
+  <Project Path="WpfAnimationAndCustomControl/WpfAnimationAndCustomControl.csproj" />
   <Project Path="WpfMvvmLearn/WpfMvvmLearn.csproj" />
   <Project Path="WpfStyleAndTemplateLearn/WpfStyleAndTemplateLearn.csproj" />
 </Solution>

@@ -1,0 +1,30 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:WpfAnimationAndCustomControl.Controls">
+
+    <!-- RectangleProgressBar 기본 스타일 / ControlTemplate -->
+    <Style TargetType="{x:Type controls:RectangleProgressBar}">
+        <Setter Property="Height" Value="32" />
+        <Setter Property="MinWidth" Value="100" />
+        <Setter Property="BarBrush" Value="#3B82F6" />
+        <Setter Property="Background" Value="#E5E7EB" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type controls:RectangleProgressBar}">
+                    <!-- 배경 사각형 (트랙) -->
+                    <Border Background="{TemplateBinding Background}"
+                            CornerRadius="6"
+                            ClipToBounds="True">
+                        <!-- 채움 사각형 (값에 따라 너비 변경) -->
+                        <Border x:Name="PART_Fill"
+                                HorizontalAlignment="Left"
+                                Background="{TemplateBinding BarBrush}"
+                                CornerRadius="6"
+                                Width="0" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
